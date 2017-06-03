@@ -26,7 +26,7 @@ setup_boost()
 add_definitions(-DCORE_ISLIB)
 
 add_library(famicx-common-core SHARED ${SRC})
-target_link_libraries(famicx-common-core ${CMAKE_DL_LIBS} ${Boost_LIBRARIES})
+target_link_libraries(famicx-common-core ${CMAKE_DL_LIBS} ${Boost_LIBRARIES} ${Boost_SYSTEM_LIBRARY} ${Boost_THREAD_LIBRARY})
 
 if (UNIX)
 	install(TARGETS famicx-common-core

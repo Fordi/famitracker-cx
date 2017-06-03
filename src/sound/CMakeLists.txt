@@ -8,7 +8,8 @@ set(SOUNDTHREAD
 
 if ("${CMAKE_SYSTEM}" MATCHES "Linux")
 	find_package(ALSA REQUIRED)
-	include(${ALSA_INCLUDE_DIR})
+	
+	# include(${ALSA_INCLUDE_DIR}/asoundlib.h)
 
 	add_library(famicx-core-alsa-sound MODULE alsa.cpp alsa.hpp ${SOUNDTHREAD})
 	target_link_libraries(famicx-core-alsa-sound ${ALSA_LIBRARY})
@@ -43,7 +44,7 @@ find_package(Jack)
 if (JACK_FOUND)
 	option(WITH_JACK "Use JACK audio" ON)
 	if (WITH_JACK)
-		include("${JACK_INCLUDE_DIR}")
+		# include("${JACK_INCLUDE_DIR}")
 		add_library(famicx-core-jack-sound MODULE jack.cpp jack.hpp)
 		target_link_libraries(famicx-core-jack-sound "${JACK_LIBRARY}")
 
